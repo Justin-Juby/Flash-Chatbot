@@ -1,1 +1,4 @@
-email = "justinjuby930@gmail.com"
+[server]
+headless = true
+port = 8501
+enableCORS = false
