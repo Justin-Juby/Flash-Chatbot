@@ -14,7 +14,7 @@ model = genai.GenerativeModel(model_name="gemini-2.0-flash")
 
 # --- Streamlit Page Config ---
 st.set_page_config(
-    page_title="⚡ JFlash 2.0 Chatbot",
+    page_title="⚡ JustinAI ",
     page_icon="⚡",
     layout="centered"
 )
