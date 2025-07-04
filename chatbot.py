@@ -37,19 +37,24 @@ if "chat" not in st.session_state:
     st.session_state.chat = model.start_chat(history=[])
 
 # --- Display chat history ---
-for message in st.session_state.chat.history:
-    role = message.role  # "user" or "model"
-    with st.chat_message(role):
-        st.markdown(message.parts[0].text)
+if st.session_state.chat.history:
+    for message in st.session_state.chat.history:
+        role = message.role  # "user" or "model"
+        with st.chat_message(role):
+            st.markdown(message.parts[0].text)
+else:
+    st.info("Start the conversation by typing a message below!")
 
 # --- Chat input ---
 user_input = st.chat_input("Type your message...")
 
 if user_input:
+    # Display user message
     with st.chat_message("user"):
         st.markdown(user_input)
 
     try:
+        # Send user message to Gemini and display response
         response = st.session_state.chat.send_message(user_input)
         with st.chat_message("assistant"):
             st.markdown(response.text)
