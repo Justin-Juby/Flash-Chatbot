@@ -14,7 +14,7 @@ model = genai.GenerativeModel(model_name="gemini-2.0-flash")
 
 # --- Streamlit Page Config ---
 st.set_page_config(
-    page_title="⚡ JustinAI ",
+    page_title=" JustinAI",
     page_icon="⚡",
     layout="centered"
 )
@@ -24,8 +24,8 @@ st.markdown(
     """
     <div style='text-align: center; padding-top: 10px;'>
         <img src='logo.png' width='180' style='margin-bottom: 10px;' />
-        <h1 style='margin: 0; font-size: 3em;'>⚡ Flash 2.0</h1>
-        <p style='color: gray; font-size: 1.1em;'>Justin powered AI - yapping assistant</p>
+        <h1 style='margin: 0; font-size: 3em;'>⚡ JustinAI</h1>
+        <p style='color: gray; font-size: 1.1em;'>Coffee powered AI - yapping assistant</p>
     </div>
     <hr style='border-top: 1px solid #444;' />
     """,
@@ -37,24 +37,19 @@ if "chat" not in st.session_state:
     st.session_state.chat = model.start_chat(history=[])
 
 # --- Display chat history ---
-if st.session_state.chat.history:
-    for message in st.session_state.chat.history:
-        role = message.role  # "user" or "model"
-        with st.chat_message(role):
-            st.markdown(message.parts[0].text)
-else:
-    st.info("Start the conversation by typing a message below!")
+for message in st.session_state.chat.history:
+    role = message.role  # "user" or "model"
+    with st.chat_message(role):
+        st.markdown(message.parts[0].text)
 
 # --- Chat input ---
 user_input = st.chat_input("Type your message...")
 
 if user_input:
-    # Display user message
     with st.chat_message("user"):
         st.markdown(user_input)
 
     try:
-        # Send user message to Gemini and display response
         response = st.session_state.chat.send_message(user_input)
         with st.chat_message("assistant"):
             st.markdown(response.text)
@@ -67,7 +62,7 @@ st.markdown("---")
 st.markdown(
     f"""
     <div style='text-align: center; color: gray; font-size: 0.9em; margin-bottom: 20px;'>
-        Made with ⚡ by Justin<br>
+        Made with ❤️ by Justin<br>
         <span style='font-size: 0.8em;'>Last updated {now}</span>
     </div>
     """,
