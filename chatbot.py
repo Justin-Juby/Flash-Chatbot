@@ -20,17 +20,27 @@ st.set_page_config(
 )
 
 # --- Header with Logo and Title ---
+# --- Centered Logo ---
+st.markdown("<div style='text-align:center; margin-top: 20px;'>", unsafe_allow_html=True)
+st.image("logo.png", width=220)
+st.markdown("</div>", unsafe_allow_html=True)
+
+# --- Fully Purple Themed Title & Subtitle ---
 st.markdown(
     """
-    <div style='text-align: center; padding-top: 10px;'>
-        <img src='logo.png' width='180' style='margin-bottom: 10px;' />
-        <h1 style='margin: 0; font-size: 3em;'>⚡ JustinAI</h1>
-        <p style='color: gray; font-size: 1.1em;'>Coffee powered AI - yapping assistant</p>
+    <div style='text-align: center; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
+        <h1 style='font-size: 3.2em; font-weight: 800; color: #7C3AED; margin: 10px 0 5px 0;'>⚡ Justin-AI</h1>
+        <p style='color: #A855F7; font-size: 1.25em; margin-top: 0; font-weight: 500; letter-spacing: 0.03em;'>
+            Coffee-powered AI — for your daily tasks
+        </p>
     </div>
-    <hr style='border-top: 1px solid #444;' />
+    <hr style='border-top: 1px solid #C4B5FD; margin-top: 30px;' />
     """,
     unsafe_allow_html=True
 )
+
+
+
 
 # --- Initialize chat session ---
 if "chat" not in st.session_state:
@@ -68,3 +78,4 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
