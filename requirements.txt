@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-streamlit
+streamlit==1.25.0
 google-generativeai
-python-dotenv
-=======
-streamlit
-google-generativeai
-python-dotenv
->>>>>>> 24bf564 (⚡ First commit of Flash 2.0 with layout and logo)
+
